@@ -64,7 +64,7 @@ const Team = () => {
   }, []);
   
   return (
-    <div className="lg:py-16 py-12 px-6">
+    <div className="p-5 sm:p-8 lg:py-16 mx-auto max-w-screen-2xl" id="teamSection">
       <Title className="mb-10">Наша команда</Title>
       <AliceCarousel
           responsive={{

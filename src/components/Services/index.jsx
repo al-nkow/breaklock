@@ -26,7 +26,7 @@ const Items = [
 
 const Services = () => {
   return (
-    <div className="lg:py-16 py-12 px-6 text-center">
+    <div className="lg:py-16 py-12 px-6 text-center" id="servicesSection">
       <Title className="mb-10">Наши услуги</Title>
       <div
         className="

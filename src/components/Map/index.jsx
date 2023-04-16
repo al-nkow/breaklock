@@ -33,7 +33,7 @@ const points = [
 
 const Map = () => {
   return (
-    <div className="relative">
+    <div className="relative" id="mapSection">
       <YMaps>
         <YMap
           width="100%"

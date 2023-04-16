@@ -11,7 +11,7 @@ const data = [
 
 const Documents = () => {
   return (
-    <div className="p-10">
+    <div className="p-10" id="docsSection">
       <div className="max-w-screen-xl mx-auto md:flex font-gilroyLight font-semibold">
         <div>
           <h3 className="mb-5 text-3xl">Необходимые документы<br />для вскрытия замка</h3>

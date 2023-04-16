@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       <div className="p-5 sm:p-8 min-h-[200px] bg-[#272727]">
-        <div className="text-center sm:text-left sm:flex max-w-screen-xl mx-auto items-stretch">
+        <div className="text-center sm:text-left sm:flex max-w-screen-2xl mx-auto items-stretch">
           <div className="mb-8 px-2 sm:w-[50%] md:w-[40%] lg:w-[35%] xl:w-[25%]">
             <StaticImage
               width={231}

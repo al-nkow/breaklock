@@ -17,7 +17,7 @@ const data = [
 
 const Reviews = ({ open }) => {
   return (
-    <div className="lg:py-16 py-12 px-6 text-center">
+    <div className="lg:py-16 py-12 px-6 text-center" id="reviewsSection">
       <Title className="mb-10">Отзывы клиентов</Title>
       <div className="w-[90%] max-w-[900px] mx-auto">
         <AliceCarousel

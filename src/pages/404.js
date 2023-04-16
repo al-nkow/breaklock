@@ -1,15 +1,16 @@
-import * as React from "react"
+import * as React from 'react';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from '../components/Layout';
+import Seo from '../components/seo';
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <div className="min-h-[500px] flex items-center justify-center">
+      <h1 className="text-2xl">404: Страница не найдена</h1>
+    </div>
   </Layout>
 )
 
 export const Head = () => <Seo title="404: Not Found" />
 
-export default NotFoundPage
+export default NotFoundPage;

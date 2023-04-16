@@ -1,7 +1,9 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const Survey = () => {
+import Button from '../Button';
+
+const Survey = ({ toggleCallModal }) => {
   return (
     <div className="px-4 py-10 bg-[#f9f9f9]">
       <div className="max-w-screen-xl mx-auto text-center md:flex">
@@ -48,44 +50,18 @@ const Survey = () => {
             alt=""
           />
           <div>
-            <button
-              className="
-                md:ml-0
-                md:text-base
-                md:h-[58px]
-                md:text-base
-                mx-3
-                mb-3
-                text-sm
-                text-white
-                w-[210px]
-                h-[44px]
-                bg-blred-500
-                hover:bg-red-700
-                rounded-full
-              "
+            <Button
+              className="md:ml-0 mx-3 mb-3"
+              onClick={toggleCallModal}
             >
               Заказать звонок
-            </button>
-            <button
-              className="
-                md:mx-0
-                md:text-base
-                md:h-[58px]
-                md:text-base
-                mx-3
-                border-2
-                border-black
-                text-sm
-                hover:bg-gray-200
-                w-[210px]
-                h-[44px]
-                bg-transparent
-                rounded-full
-              "
+            </Button>
+            <Button
+              className="md:ml-0 mx-3"
+              type="borderBlack"
             >
               Пройти тест
-            </button>
+            </Button>
           </div>
         </div>
       </div>
