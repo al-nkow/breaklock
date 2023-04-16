@@ -1,11 +1,10 @@
 import React from 'react';
 
+import Overlay from '../Overlay';
+
 const VideoModal = ({ src, close }) => {
   return (
-    <div
-      onClick={close}
-      className="cursor-pointer fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 overscroll-none flex items-center justify-center"
-    >
+    <Overlay onClick={close}>
       <div
         className="bg-white w-[600px] rounded shadow-lg overflow-hidden"
       >
@@ -20,7 +19,7 @@ const VideoModal = ({ src, close }) => {
           ></iframe>
         </div>
       </div>
-    </div>
+    </Overlay>
   )
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Button from '../Button';
+import Overlay from '../Overlay';
 
 const INP_STYLES = 'border border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5';
 const ERR_STYLES = 'absolute text-xs text-red-500 font-gilroyLight font-semibold left-2 bottom-2';
@@ -8,16 +9,6 @@ const ERR_STYLES = 'absolute text-xs text-red-500 font-gilroyLight font-semibold
 const CallModal = ({ close }) => {
   const [values, setValues] = useState({ name: '', phone: '' });
   const [errors, setErrors] = useState({ name: '', phone: '' });
-
-  useEffect(() => {
-    const htmlElement = document.getElementsByTagName('html')[0];
-    htmlElement.style.overflow = 'hidden';
-    document.body.style['overflow-y'] = 'scroll';
-    return () => {
-      htmlElement.style.overflow = 'unset';
-      document.body.style['overflow-y'] = 'unset';
-    }
-  }, []);
 
   const validateName = (value) => {
     if (!value) return 'Это поле обязательно для заполнения!';
@@ -54,9 +45,7 @@ const CallModal = ({ close }) => {
   };
 
   return (
-    <div
-      className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 overscroll-none flex items-center justify-center"
-    >
+    <Overlay>
       <div
         className="bg-white w-[95%] rounded shadow-lg overflow-hidden p-5 sm:p-10 max-w-[600px]"
       >
@@ -95,7 +84,7 @@ const CallModal = ({ close }) => {
           </Button>
         </div>
       </div>
-    </div>
+    </Overlay>
   )
 }
 
