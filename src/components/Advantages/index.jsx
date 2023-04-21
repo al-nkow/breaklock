@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import Title from '../Title';
+import Wrap from '../Wrap';
 import Door from './icons/door.svg';
 import Truck from './icons/truck.svg';
 import Location from './icons/location.svg';
@@ -29,7 +30,7 @@ const Items = [
 ];
 
 const Advantages = () => (
-  <div className="lg:py-16 py-12 px-6 text-center">
+  <Wrap extClassName="py-12 lg:py-16 text-center">
     <Title>Почему выбирают нас</Title>
     <div className="
       grid gap-4 sm:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1
@@ -48,7 +49,7 @@ const Advantages = () => (
         </div>
       ))}
     </div>
-  </div>
+  </Wrap>
 );
 
 export default Advantages;

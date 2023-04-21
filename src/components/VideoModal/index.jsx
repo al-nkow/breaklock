@@ -8,7 +8,7 @@ import Loader from '../Loader';
 const VideoModal = ({ src, close }) => (
   <Overlay onClick={close}>
     <div
-      className="relative bg-white w-[600px] rounded shadow-lg"
+      className="relative bg-white max-w-[600px] lg:max-w-[900px] rounded shadow-lg w-[90%]"
     >
       <div className="absolute top-[-16px] right-[-16px] z-10 bg-white rounded-full p-2 border-2 border-blred-500">
         <SvgIcon onClick={close} icon="close" className="w-[22px] h-[22px] cursor-pointer" />

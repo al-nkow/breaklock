@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-
+import Wrap from '../Wrap';
 import Title from '../Title';
 import Button from '../Button';
 
@@ -9,7 +9,7 @@ const BUTTONS = [
   { id: 'ex1', title: 'Вскрытие замков' },
   { id: 'ex2', title: 'Установка замков' },
   { id: 'ex3', title: 'Замена замков' },
-]
+];
 
 const Examples = () => {
   const [active, setActive] = useState(BUTTONS[0].id);
@@ -45,9 +45,9 @@ const Examples = () => {
   }, {}), [images]);
 
   return (
-    <div className="lg:py-16 py-12 px-6 text-center" id="examplesSection">
-      <Title className="mb-10">Примеры работ</Title>
-      <div className="mb-16">
+    <Wrap extClassName="py-12 lg:py-16 text-center" id="examplesSection">
+      <Title className="mb-5 sm:mb-10">Примеры работ</Title>
+      <div className="min-[510px]:flex min-[750px]:block  mb-8 sm:mb-16">
         {BUTTONS.map(({ id, title }) => (
           <Button
             key={id}
@@ -59,7 +59,7 @@ const Examples = () => {
           </Button>
         ))}
       </div>
-      <div className="grid gap-4 grid-cols-4 grid-rows-2 max-w-screen-xl mx-auto">
+      <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 max-w-screen-xl mx-auto">
         {imgMap[active].map((image) => (
           <div key={image.node.id} style={{ height: '100%' }}>
             <GatsbyImage
@@ -67,15 +67,14 @@ const Examples = () => {
               placeholder="blurred"
               image={getImage(image.node)}
               src={image.node.childImageSharp.fluid.src}
-              formats={["auto", "webp", "avif"]}
+              formats={['auto', 'webp', 'avif']}
               alt=""
             />
           </div>
         ))}
       </div>
-    </div>
+    </Wrap>
   );
 };
 
 export default Examples;
-

@@ -38,8 +38,7 @@ const Footer = () => (
     <div
       className="h-[60px] text-white bg-[#222222] flex flex-col items-center justify-center text-sm font-gilroyLight font-semibold"
     >
-      Все права защищены.
-      {YEAR}
+      Все права защищены. {YEAR}
     </div>
   </>
 );

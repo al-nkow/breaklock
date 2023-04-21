@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Title from '../Title';
 import Slider from '../Slider';
-
+import Wrap from '../Wrap';
 import img1 from './images/v1.png';
 import img2 from './images/v2.png';
 import img3 from './images/v3.png';
@@ -16,10 +15,10 @@ const data = [
 ];
 
 const Reviews = ({ open }) => (
-  <div className="lg:py-16 py-12 px-6 text-center" id="reviewsSection">
+  <Wrap extClassName="py-12 pb-0 lg:py-16 text-center" id="reviewsSection">
     <Title className="mb-10">Отзывы клиентов</Title>
 
-    <div className="w-[90%] max-w-[900px] mx-auto">
+    <div className="w-[90%] mx-auto">
       <Slider
         responsive={{
           0: { items: 1 },
@@ -50,7 +49,7 @@ const Reviews = ({ open }) => (
         ))}
       </Slider>
     </div>
-  </div>
+  </Wrap>
 );
 
 export default Reviews;
