@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import '@pixelpay/fonts/dist/gilroy.css';
-import 'react-alice-carousel/lib/alice-carousel.css';
 
-import Header from '../components/headerNew';
+import Header from '../components/Header';
 import Layout from '../components/Layout';
 import Info from '../components/Info';
-import Advantages from '../components/Advantages'
+import Advantages from '../components/Advantages';
 import Survey from '../components/Survey';
 import Services from '../components/Services';
 import Examples from '../components/Examples';
@@ -28,11 +27,11 @@ const MainPage = () => {
   }, []);
 
   const toggleMenu = useCallback(() => {
-    setOpenMenu(value => !value);
+    setOpenMenu((value) => !value);
   }, []);
 
   const toggleCallModal = useCallback(() => {
-    setCallModalOpen(value => !value);
+    setCallModalOpen((value) => !value);
   }, []);
 
   return (
@@ -51,10 +50,9 @@ const MainPage = () => {
       {videoSrc && <VideoModal src={videoSrc} close={closeVideoModal} />}
       {openCallModal && <CallModal close={toggleCallModal} />}
     </Layout>
-  )
+  );
 };
 
-export const Head = () => <Seo title="Pomogaykin" />
+export const Head = () => <Seo title="Pomogaykin" />;
 
 export default MainPage;
-

@@ -1,7 +1,9 @@
 import React from 'react';
 import Menu from '../Menu';
-import background from './images/bg.jpg';
 import { StaticImage } from 'gatsby-plugin-image';
+import background from './images/bg.jpg';
+
+import Button from '../Button';
 
 const Info = ({ open, toggleMenu, toggleCallModal }) => {
   return (
@@ -24,12 +26,12 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => {
             Срочный сервис в<br/>
             Санкт-Петербурге и Области
           </div>
-          <button
+          <Button
             onClick={toggleCallModal}
-            className="font-medium bg-blred-500 hover:bg-red-700 text-white font-bold py-4 sm:px-4 lg:px-8 xl:px-9 rounded-full hidden md:inline"
+            bold
           >
             Оставить заявку
-          </button>
+          </Button>
         </div>
       </div>
     </div>

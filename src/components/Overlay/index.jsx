@@ -8,17 +8,17 @@ const Overlay = ({ children, onClick }) => {
     return () => {
       htmlElement.style.overflow = 'unset';
       document.body.style['overflow-y'] = 'unset';
-    }
+    };
   }, []);
 
-  return  (
+  return (
     <div
       onClick={onClick}
       className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 overscroll-none flex items-center justify-center"
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default Overlay;

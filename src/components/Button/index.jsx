@@ -13,15 +13,14 @@ const SIZES = {
   'small': 'w-[140px] h-[38px]'
 };
 
-const Button = ({ children, onClick, className, type = 'fill', size = 'medium' }) => {
+const Button = ({ children, onClick, className, type = 'fill', size = 'medium', bold }) => {
   return (
     <button
       onClick={onClick}
       className={`
         rounded-full
-        font-gilroyLight
-        font-semibold
         text-sm
+        ${bold ? '' : 'font-gilroyLight font-semibold'}
         ${className}
         ${SIZES[size]}
         ${STYLES[type]}

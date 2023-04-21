@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Button from '../Button';
 import Overlay from '../Overlay';
@@ -14,30 +14,30 @@ const CallModal = ({ close }) => {
     if (!value) return 'Это поле обязательно для заполнения!';
     if (!(/^[А-Яа-яA-Za-z\s]*$/.test(value))) return 'Имя может содержать только буквы!';
     return '';
-  }
+  };
 
   const validatePhone = (value) => {
     if (!value) return 'Это поле обязательно для заполнения!';
-    if (!(/^[0-9\s\-\(\)\+]*$/.test(value))) return 'Неправильный формат номера телефона!';
+    if (!(/^[0-9\s\-()+]*$/.test(value))) return 'Неправильный формат номера телефона!';
     return '';
-  }
+  };
 
   const nameChangeHandler = (value) => {
-    if (errors.name) setErrors(errors => ({ ...errors, name: '' }));
-    setValues(val => ({ ...val, name: value }));
-  }
+    if (errors.name) setErrors((errs) => ({ ...errs, name: '' }));
+    setValues((val) => ({ ...val, name: value }));
+  };
 
   const phoneChangeHandler = (value) => {
-    if (errors.phone) setErrors(errors => ({ ...errors, phone: '' }));
-    setValues(val => ({ ...val, phone: value }));
-  }
+    if (errors.phone) setErrors((errs) => ({ ...errs, phone: '' }));
+    setValues((val) => ({ ...val, phone: value }));
+  };
 
   const submit = () => {
     const nameError = validateName(values.name);
     const phoneError = validatePhone(values.phone);
 
-    if (nameError) setErrors(errors => ({ ...errors, name: nameError }));
-    if (phoneError) setErrors(errors => ({ ...errors, phone: phoneError }));
+    if (nameError) setErrors((errs) => ({ ...errs, name: nameError }));
+    if (phoneError) setErrors((errs) => ({ ...errs, phone: phoneError }));
 
     if (nameError || phoneError) return;
 
@@ -45,15 +45,16 @@ const CallModal = ({ close }) => {
   };
 
   return (
-    <Overlay>
+    <Overlay onClick={close}>
       <div
+        onClick={(event) => event.stopPropagation()}
         className="bg-white w-[95%] rounded shadow-lg overflow-hidden p-5 sm:p-10 max-w-[600px]"
       >
         <div className="pb-6 relative">
           <label htmlFor="first_name" className="block mb-2 text-sm font-medium">Ваше имя</label>
           <input
             value={values.name}
-            onChange={e => nameChangeHandler(e.target.value)}
+            onChange={(e) => nameChangeHandler(e.target.value)}
             type="text"
             id="first_name"
             className={`${INP_STYLES} ${errors.name && 'border-red-500'}`}
@@ -66,7 +67,7 @@ const CallModal = ({ close }) => {
           <label htmlFor="phone" className="block mb-2 text-sm font-medium">Номер телефона</label>
           <input
             value={values.phone}
-            onChange={e => phoneChangeHandler(e.target.value)}
+            onChange={(e) => phoneChangeHandler(e.target.value)}
             type="text"
             id="phone"
             className={`${INP_STYLES} ${errors.phone && 'border-red-500'}`}
@@ -85,7 +86,7 @@ const CallModal = ({ close }) => {
         </div>
       </div>
     </Overlay>
-  )
-}
+  );
+};
 
 export default CallModal;

@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-
 import Title from '../Title';
+import Slider from '../Slider';
 
 const data = [
   {
@@ -56,58 +54,56 @@ const Team = () => {
     }
   `);
 
-  const photosMap = useMemo(() => {
-    return photos.allFile.edges.reduce((acc, item) => {
-      acc[item.node.relativePath] = item;
-      return acc;
-    }, {});
-  }, []);
-  
+  const photosMap = useMemo(() => photos.allFile.edges.reduce((acc, item) => {
+    acc[item.node.relativePath] = item;
+    return acc;
+  }, {}), []);
+
   return (
     <div className="p-5 sm:p-8 lg:py-16 mx-auto max-w-screen-2xl" id="teamSection">
       <Title className="mb-10">Наша команда</Title>
-      <AliceCarousel
-          responsive={{
-            0: { items: 1 },
-            568: { items: 2 },
-            820: { items: 3 },
-            1140: { items: 4 },
-          }}
-          mouseTracking
-          disableButtonsControls
-          items={
-            data.map(({ image, name, position, desc }) => (
-              <div key={image} className="p-4">
-                <div
-                  className="relative overflow-hidden relative rounded shadow-md max-w-[360px] mx-auto flex items-center justify-center"
-                >
-                  <GatsbyImage
-                    className="rounded"
-                    placeholder="blurred"
-                    image={getImage(photosMap[image].node)}
-                    src={photosMap[image].node.childImageSharp.fluid.src}
-                    formats={["auto", "webp", "avif"]}
-                    alt=""
-                  />
-                  <StaticImage
-                    className="absolute bottom-0 left-0 right-0"
-                    placeholder="blurred"
-                    src="./images/rect.png"
-                    formats={["auto", "webp", "avif"]}
-                    alt=""
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white font-gilroyLight min-h-[154px]">
-                    <div className="font-semibold text-xl mb-1">{name}</div>
-                    <div className="mb-3">{position}</div>
-                    <div className="text-sm">{desc}</div>
-                  </div>
-                </div>
+      <Slider
+        slides={3}
+        responsive={{
+          0: { items: 1 },
+          568: { items: 2 },
+          820: { items: 3 },
+          1140: { items: 4 },
+        }}
+      >
+        {data.map(({
+          image, name, position, desc,
+        }) => (
+          <div key={image} className="p-4">
+            <div
+              className="relative overflow-hidden relative rounded shadow-md max-w-[360px] mx-auto flex items-center justify-center"
+            >
+              <GatsbyImage
+                className="rounded"
+                placeholder="blurred"
+                image={getImage(photosMap[image].node)}
+                src={photosMap[image].node.childImageSharp.fluid.src}
+                formats={['auto', 'webp', 'avif']}
+                alt=""
+              />
+              <StaticImage
+                className="absolute bottom-0 left-0 right-0"
+                placeholder="blurred"
+                src="./images/rect.png"
+                formats={['auto', 'webp', 'avif']}
+                alt=""
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white font-gilroyLight min-h-[176px]">
+                <div className="font-semibold text-xl mb-1">{name}</div>
+                <div className="mb-3">{position}</div>
+                <div className="text-sm">{desc}</div>
               </div>
-          ))}
-        />
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
-  )
-}
+  );
+};
 
 export default Team;
-

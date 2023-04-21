@@ -11,12 +11,3 @@
 html, body {
   font-family: 'Gilroy', 'Arial', sans-serif!important;
 }
-
-.alice-carousel__dots-item {
-  background-color: #fca5a5 !important;
-  width: 16px !important;
-  height: 16px !important;
-}
-.alice-carousel__dots-item.__active {
-  background-color: #d01829 !important;
-}
