@@ -61,9 +61,11 @@ const Examples = () => {
       </div>
       <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 max-w-screen-xl mx-auto">
         {imgMap[active].map((image) => (
-          <div key={image.node.id} style={{ height: '100%' }}>
+          <div
+            key={image.node.id}
+            className="relative rounded h-full overflow-hidden safarifix"
+          >
             <GatsbyImage
-              className="rounded"
               placeholder="blurred"
               image={getImage(image.node)}
               src={image.node.childImageSharp.fluid.src}

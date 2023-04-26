@@ -17,6 +17,9 @@ module.exports = {
       },
       fontFamily: {
         gilroyLight: ['Gilroy light', 'sans-serif'],
+        gilroyBold: ['Gilroy bold', 'sans-serif'],
+        gilroyMedium: ['Gilroy medium', 'sans-serif'],
+        gilroySemiBold: ['Gilroy semibold', 'sans-serif'],
       },
     },
   },

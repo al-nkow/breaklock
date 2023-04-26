@@ -6,7 +6,7 @@ import useSwipe from '../../hooks/useSwipe';
 
 const commonClasses = 'flex mx-auto lg:justify-between flex-wrap ease-in-out duration-200';
 const mobMenuClasses = 'fixed z-50 top-4 right-4 bg-white max-w-[300px] w-[90%] p-5 rounded shadow-md flex-col';
-const mdClasses = 'md:flex-row md:static md:w-full md:max-w-full md:bg-transparent md:p-0 md:shadow-none md:translate-x-0';
+const mdClasses = 'font-gilroyMedium md:flex-row md:static md:w-full md:max-w-full md:bg-transparent md:p-0 md:shadow-none md:translate-x-0';
 
 const Menu = ({ open, toggleMenu }) => {
   const swipeHandlers = useSwipe({ onSwipedRight: toggleMenu });

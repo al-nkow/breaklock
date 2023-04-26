@@ -17,10 +17,10 @@ const PhoneBlock = ({ className, collapsed }) => (
       }
     >
       <SvgIcon className="w-[16px] h-[16px] mx-2 fill-blred-500" icon="phone" />
-      <div className={`lg:text-lg xl:text-xl ${collapsed && 'hidden md:block'}`}>{PHONE}</div>
+      <div className={`font-gilroyMedium lg:text-lg xl:text-xl ${collapsed && 'hidden md:block'}`}>{PHONE}</div>
     </a>
     <div
-      className={`${collapsed && 'hidden md:block text-slate-600 font-semibold'} font-gilroyLight text-sm`}
+      className={`${collapsed && 'hidden md:block text-slate-600'} font-gilroyLight text-sm`}
     >
       с 9:00 до 18:00
     </div>

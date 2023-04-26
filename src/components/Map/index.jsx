@@ -1,5 +1,7 @@
 import React from 'react';
-import { YMaps, Map as YMap, ZoomControl, Placemark } from '@pbe/react-yandex-maps';
+import {
+  YMaps, Map as YMap, ZoomControl, Placemark,
+} from '@pbe/react-yandex-maps';
 
 import SvgIcon from '../SvgIcon';
 import { PHONE, EMAIL, WHATSAPP_URL } from '../../constants';
@@ -31,64 +33,62 @@ const points = [
   [59.949783, 30.225444],
 ];
 
-const Map = () => {
-  return (
-    <div className="relative" id="mapSection">
-      <YMaps>
-        <YMap
-          width="100%"
-          height="500px"
-          defaultState={{
-            center: [59.942861, 30.318326],
-            zoom: 12,
-            controls: [],
-            behaviors: ['drag'],
-          }}
-        >
-          <ZoomControl options={{ size: 'small', position: { top: 120, right: 10 } }} />
-          {points.map(item => (
-            <Placemark
-              key={item[0]}
-              geometry={item}
-              options={{
-                iconColor: '#d01829',
-                preset: 'islands#dotIcon'
-              }}
-            />
-          ))}
-        </YMap>
-      </YMaps>
-      <div className="absolute top-[20px] sm:top-[100px] left-[20px] sm:left-[100px] rounded bg-white shadow-lg w-[280px] max-w-[90%] p-8">
-        <h3 className="text-3xl mb-5 font-gilroy">Контакты</h3>
-        <a
-          className="relative pl-8 mb-2 font-gilroyLight no-underline block"
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SvgIcon icon="whatsapp" className="absolute top-[3px] left-0" />
-          <div className="text-gray-500">WhatsApp:</div>
-          <div className="font-semibold text-black no-underline hover:text-blred-500">
-            {PHONE}
-          </div>
-        </a>
-        <a href={`tel:${PHONE}`} className="relative pl-8 mb-2 font-gilroyLight no-underline block">
-          <SvgIcon icon="phone" className="absolute top-[3px] left-0" />
-          <div className="text-gray-500">Телефон:</div>
-          <div className="font-semibold text-black hover:text-blred-500">
-            {PHONE}
-          </div>
-        </a>
-        <a href={`mailto:${EMAIL}`} className="relative pl-8 mb-2 font-gilroyLight no-underline block">
-          <SvgIcon icon="mail" className="absolute top-[4px] left-[4px]" />
-          <div className="text-gray-500">Почта:</div>
-          <div className="font-semibold text-black hover:text-blred-500">
-            {EMAIL}
-          </div>
-        </a>
-      </div>
+const Map = () => (
+  <div className="relative" id="mapSection">
+    <YMaps>
+      <YMap
+        width="100%"
+        height="500px"
+        defaultState={{
+          center: [59.942861, 30.318326],
+          zoom: 12,
+          controls: [],
+          behaviors: ['drag'],
+        }}
+      >
+        <ZoomControl options={{ size: 'small', position: { top: 120, right: 10 } }} />
+        {points.map((item) => (
+          <Placemark
+            key={item[0]}
+            geometry={item}
+            options={{
+              iconColor: '#d01829',
+              preset: 'islands#dotIcon',
+            }}
+          />
+        ))}
+      </YMap>
+    </YMaps>
+    <div className="absolute top-[20px] sm:top-[100px] left-[20px] sm:left-[100px] rounded bg-white shadow-lg w-[280px] max-w-[90%] p-8">
+      <h3 className="text-3xl mb-5 font-gilroy">Контакты</h3>
+      <a
+        className="relative pl-8 mb-2 no-underline block"
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <SvgIcon icon="whatsapp" className="absolute top-[3px] left-0" />
+        <div className="font-gilroyLight text-gray-500">WhatsApp:</div>
+        <div className="text-black no-underline hover:text-blred-500">
+          {PHONE}
+        </div>
+      </a>
+      <a href={`tel:${PHONE}`} className="relative pl-8 mb-2 no-underline block">
+        <SvgIcon icon="phone" className="absolute top-[3px] left-0" />
+        <div className="font-gilroyLight text-gray-500">Телефон:</div>
+        <div className="text-black hover:text-blred-500">
+          {PHONE}
+        </div>
+      </a>
+      <a href={`mailto:${EMAIL}`} className="relative pl-8 mb-2 no-underline block">
+        <SvgIcon icon="mail" className="absolute top-[4px] left-[4px]" />
+        <div className="font-gilroyLight text-gray-500">Почта:</div>
+        <div className="text-black hover:text-blred-500">
+          {EMAIL}
+        </div>
+      </a>
     </div>
-  )
-}
+  </div>
+);
 
 export default Map;

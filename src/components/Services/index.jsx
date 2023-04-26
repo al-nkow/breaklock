@@ -47,7 +47,7 @@ const Services = () => (
           "
         >
           <div className="flex flex-none items-center justify-center w-[58px] sm:w-[77px]">{icon}</div>
-          <div className="flex items-center pl-7 font-gilroyLight font-semibold">{text}</div>
+          <div className="flex items-center pl-7 lg:text-lg">{text}</div>
         </div>
       ))}
     </div>

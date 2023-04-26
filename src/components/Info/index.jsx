@@ -13,7 +13,7 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => (
   >
     <Menu open={open} toggleMenu={toggleMenu} />
     <div className="pt-7 md:pl-5 md:pt-[10%] lg:pl-10">
-      <span className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] md:font-semibold">
+      <span className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
         <span className="text-blred-500">Вскрытие</span> всех типов<br />
         <span className="text-blred-500">Замков</span> 24/7
       </span>
@@ -24,24 +24,26 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => (
       <Button
         className="mb-8"
         onClick={toggleCallModal}
-        bold
       >
         Оставить заявку
       </Button>
     </div>
-    <StaticImage
-      placeholder="blurred"
-      class="
+    <div
+      className="
         w-[85%] min-[578px]:w-[240px] md:w-[400px] min-[875px]:w-auto
         min-[578px]:absolute min-[578px]:bottom-0 min-[578px]:right-[15px]
         mb-[-20%] min-[578px]:mb-0
-        block mx-auto
-      "
-      height={540}
-      src="./images/dudes.png"
-      formats={['auto', 'webp', 'avif']}
-      alt=""
-    />
+        block mx-auto"
+    >
+      <StaticImage
+        placeholder="blurred"
+        class="block"
+        height={540}
+        src="./images/dudes.png"
+        formats={['auto', 'webp', 'avif']}
+        alt=""
+      />
+    </div>
   </Wrap>
 );
 

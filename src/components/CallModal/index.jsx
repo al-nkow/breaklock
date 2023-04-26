@@ -4,7 +4,7 @@ import Button from '../Button';
 import Overlay from '../Overlay';
 
 const INP_STYLES = 'border border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5';
-const ERR_STYLES = 'absolute text-xs text-red-500 font-gilroyLight font-semibold left-2 bottom-2';
+const ERR_STYLES = 'absolute text-xs text-red-500 left-2 bottom-2';
 
 const CallModal = ({ close }) => {
   const [values, setValues] = useState({ name: '', phone: '' });

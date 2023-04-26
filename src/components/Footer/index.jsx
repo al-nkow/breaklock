@@ -20,7 +20,7 @@ const Footer = () => (
             alt=""
           />
         </div>
-        <div className="hidden lg:grid lg:w-[45%] xl:w-[35%] px-2 text-white grid-rows-3 grid-flow-col gap-4 font-gilroyLight font-semibold">
+        <div className="hidden lg:grid lg:w-[45%] xl:w-[35%] px-2 text-white grid-rows-3 grid-flow-col gap-4">
           {MENU_ITEMS.map(({ id, title, target }) => (
             <div onClick={() => scroll(target)} className="cursor-pointer hover:text-blblue-500" key={id}>{title}</div>
           ))}
@@ -36,7 +36,7 @@ const Footer = () => (
       </div>
     </div>
     <div
-      className="h-[60px] text-white bg-[#222222] flex flex-col items-center justify-center text-sm font-gilroyLight font-semibold"
+      className="h-[60px] text-white bg-[#222222] flex flex-col items-center justify-center text-sm"
     >
       Все права защищены. {YEAR}
     </div>

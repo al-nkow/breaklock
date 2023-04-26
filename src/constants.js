@@ -1,6 +1,6 @@
-export const PHONE = '+7 (495) 991-3360';
-export const EMAIL = 'zakaz@color-v.ru';
-export const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=74959913360';
+export const PHONE = '+7 (999) 515-9820';
+export const EMAIL = '89117779644@mail.ru';
+export const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=79995159820';
 
 export const MENU_ITEMS = [
   { id: 1, title: 'Наши услуги', target: 'servicesSection' },

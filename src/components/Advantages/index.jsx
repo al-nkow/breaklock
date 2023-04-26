@@ -42,7 +42,7 @@ const Advantages = () => (
           className="
             p-5 pl-28 sm:pt-28 sm:pl-5
             relative w-full shadow-md rounded
-            text-left font-gilroyLight font-semibold"
+            text-left lg:text-lg"
         >
           {icon}
           {text}

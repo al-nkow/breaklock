@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import '@pixelpay/fonts/dist/gilroy.css';
 
 import Header from '../components/Header';
 import Layout from '../components/Layout';

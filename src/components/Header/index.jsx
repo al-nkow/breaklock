@@ -24,7 +24,6 @@ const Header = ({ toggleMenu, toggleCallModal }) => (
         <Button
           className="sm:px-4 lg:px-8 xl:px-9 hidden md:inline"
           onClick={toggleCallModal}
-          bold
         >
           Заказать звонок
         </Button>

@@ -11,9 +11,9 @@ const data = [
 ];
 
 const Documents = () => (
-  <Wrap extClassName="py-12 lg:py-16 font-gilroyLight font-semibold" intClassName=" md:flex" id="docsSection">
+  <Wrap extClassName="py-12 lg:py-16" intClassName=" md:flex" id="docsSection">
     <div>
-      <h3 className="mb-5 text-2xl sm:text-3xl">Необходимые документы<br />для вскрытия замка</h3>
+      <h3 className="mb-5 text-2xl sm:text-3xl font-gilroyMedium">Необходимые документы<br />для вскрытия замка</h3>
       <div className="w-32 h-1 bg-blred-500 rounded mb-5" />
       <div className="p-4 mb-5 md:hidden text-center">
         <StaticImage
