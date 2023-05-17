@@ -1,18 +1,22 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Wrap from '../Wrap';
+import { ANIMATION_PROPS } from '../../constants';
 
 const data = [
-  { id: '01', text: 'Наличие официального документа' },
-  { id: '02', text: 'Паспорт с пропиской' },
-  { id: '03', text: 'Договор купли-продажи' },
-  { id: '04', text: 'Технический паспорт транспортного средства' },
-  { id: '05', text: 'Нотариальная доверенность' },
+  { id: '01', text: 'Паспорт с регистрацией' },
+  { id: '02', text: 'Свидетельство о праве собственности' },
+  { id: '03', text: 'Свидетельство о праве на наследство' },
+  { id: '04', text: 'Выписка из ЕГРН' },
+  { id: '05', text: 'Договор аренды, заверенный у нотариуса' },
+  { id: '06', text: 'Технический паспорт на автомобиль' },
+  { id: '07', text: 'Договор купли продажи' },
+  { id: '08', text: 'Доверенность на право управления автомобилем, заверенная у нотариуса' },
 ];
 
-const Documents = ({ animationProps }) => (
+const Documents = () => (
   <Wrap extClassName="py-12 lg:py-16" intClassName=" md:flex" id="docsSection">
-    <div {...animationProps}>
+    <div {...ANIMATION_PROPS}>
       <h3 className="mb-5 text-2xl sm:text-3xl font-gilroyMedium">Необходимые документы<br />для вскрытия замка</h3>
       <div className="w-32 h-1 bg-blred-500 rounded mb-5" />
       <div className="p-4 mb-5 md:hidden text-center">
@@ -25,16 +29,15 @@ const Documents = ({ animationProps }) => (
         />
       </div>
       <p className="mb-5">
-        Мы работаем легально. Для оказания услуги необходимо предоставить мастеру
-        по дверям документ, подтверждающий право собственности, распоряжения на недвижимое
-        имущество (квартиру, дом, гараж, офис) либо автомобиль.
+        После прибытия нашего специалиста, для вскрытия замка, необходимо подтвердить
+        право собственности на квартиру, автомобиль, гараж и другие помещения
       </p>
       <div
         className="
           grid gap-4 mb-5
           grid-cols-1
-          md:grid-cols-2
-          lg:grid-cols-3
+          lg:grid-cols-2
+          xl:grid-cols-3
         "
       >
         {data.map(({ id, text }) => (
@@ -47,13 +50,11 @@ const Documents = ({ animationProps }) => (
         ))}
       </div>
       <p>
-        Нередко при вскрытии замков возникает необходимость опроса соседей,
-        чтобы они подтвердили факт проживания, владения собственностью.
-        В этом случае мастер до проведения вскрытия пообщается с жильцами, проживающими
-        с клиентом на одной площадке, или обратиться к менеджерам соседних организаций.
+        Документы необходимо подготовить заранее! Если документов нет, вскрытие осуществляется
+        в присутствии участкового
       </p>
     </div>
-    <div {...animationProps} className="flex-none md:w-[50%] lg:w-[40%] pl-8 hidden md:block">
+    <div {...ANIMATION_PROPS} className="flex-none md:w-[50%] lg:w-[35%] pl-8 hidden md:block">
       <StaticImage
         placeholder="blurred m-4"
         width={468}

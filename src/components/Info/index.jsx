@@ -4,6 +4,7 @@ import background from './images/bg.jpg';
 import Menu from '../Menu';
 import Wrap from '../Wrap';
 import Button from '../Button';
+import { ANIMATION_PROPS } from '../../constants';
 
 const Info = ({ open, toggleMenu, toggleCallModal }) => (
   <Wrap
@@ -12,7 +13,7 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => (
     intClassName="min-h-[300px] md:h-[530px] min-[875px]:h-[600px] relative overflow-hidden"
   >
     <Menu open={open} toggleMenu={toggleMenu} />
-    <div className="pt-7 md:pl-5 md:pt-[10%] lg:pl-10" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+    <div className="pt-7 md:pl-5 md:pt-[10%] lg:pl-10" {...ANIMATION_PROPS}>
       <span className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
         <span className="text-blred-500">Вскрытие</span> всех типов<br />
         <span className="text-blred-500">Замков</span> 24/7

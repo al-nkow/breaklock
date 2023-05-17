@@ -8,6 +8,7 @@ import Door from './icons/door.svg';
 import Guard from './icons/guard.svg';
 import Safe from './icons/safe.svg';
 import Settings from './icons/settings.svg';
+import { ANIMATION_PROPS } from '../../constants';
 
 const iconClassName = 'h-[52px] w-[52px] sm:h-[78px] sm:w-[78px]';
 
@@ -31,9 +32,7 @@ const Services = () => (
   <Wrap extClassName="lg:py-16 py-12 text-center" id="servicesSection">
     <Title>Наши услуги</Title>
     <div
-      data-aos="fade-up"
-      data-aos-duration="1000"
-      data-aos-once="true"
+      {...ANIMATION_PROPS}
       className="
         md:grid-cols-2 md:grid-rows-3
         lg:grid-cols-3 lg:grid-rows-2
