@@ -32,8 +32,11 @@ const Items = [
 const Advantages = () => (
   <Wrap extClassName="py-12 lg:py-16 text-center">
     <Title>Почему выбирают нас</Title>
-    <div className="
-      grid gap-4 sm:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-once="true"
+      className="grid gap-4 sm:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1
       max-w-6xl mx-auto"
     >
       {Items.map(({ id, text, icon }) => (

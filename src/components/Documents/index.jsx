@@ -10,9 +10,9 @@ const data = [
   { id: '05', text: 'Нотариальная доверенность' },
 ];
 
-const Documents = () => (
+const Documents = ({ animationProps }) => (
   <Wrap extClassName="py-12 lg:py-16" intClassName=" md:flex" id="docsSection">
-    <div>
+    <div {...animationProps}>
       <h3 className="mb-5 text-2xl sm:text-3xl font-gilroyMedium">Необходимые документы<br />для вскрытия замка</h3>
       <div className="w-32 h-1 bg-blred-500 rounded mb-5" />
       <div className="p-4 mb-5 md:hidden text-center">
@@ -53,7 +53,7 @@ const Documents = () => (
         с клиентом на одной площадке, или обратиться к менеджерам соседних организаций.
       </p>
     </div>
-    <div className="flex-none md:w-[50%] lg:w-[40%] pl-8 hidden md:block">
+    <div {...animationProps} className="flex-none md:w-[50%] lg:w-[40%] pl-8 hidden md:block">
       <StaticImage
         placeholder="blurred m-4"
         width={468}

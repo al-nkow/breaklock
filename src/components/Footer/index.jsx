@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { MENU_ITEMS } from '../../constants';
 import EmailBlock from '../EmailBlock';
 import PhoneBlock from '../PhoneBlock';
-import scroll from '../../utils/scroll';
+import clickMenuItem from '../../utils/clickMenuItem';
 import Wrap from '../Wrap';
 
 const YEAR = new Date().getFullYear();
@@ -21,8 +21,12 @@ const Footer = () => (
         />
       </div>
       <div className="hidden lg:grid lg:w-[45%] xl:w-[35%] px-2 text-white grid-rows-3 grid-flow-col gap-4">
-        {MENU_ITEMS.map(({ id, title, target }) => (
-          <div onClick={() => scroll(target)} className="cursor-pointer hover:text-blblue-500" key={id}>{title}</div>
+        {MENU_ITEMS.map(({
+          id, title, target, link,
+        }) => (
+          <div onClick={() => clickMenuItem(target, link)} className="cursor-pointer hover:text-blblue-500" key={id}>
+            {title}
+          </div>
         ))}
       </div>
       <div className="sm:w-[50%] md:flex md:w-[55%] lg:w-[25%] lg:block xl:flex xl:w-[40%]">
