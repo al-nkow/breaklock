@@ -16,6 +16,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $order = $_POST['order'];
+$details = $_POST['details'];
 
 // Формирование самого письма
 $title = "POMAGAICKIN.RU заявка";
@@ -43,7 +44,7 @@ POMAGAICKIN
 </table>
 </div>
 <div style=\"margin:0;padding:24px;color:#242424;font-weight:400;font-size:20px;line-height:1.333;\">
-Поступила заявка на обратный звонок
+$details
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:200;font-size:16px;line-height:1.5;\">
 Имя:  <span style=\"font-weight:400;color:#555d87;\">$name</span><br />

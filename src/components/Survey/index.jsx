@@ -1,71 +1,75 @@
-import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import React, { useState, useMemo } from 'react';
+import Overlay from '../Overlay';
+import SvgIcon from '../SvgIcon';
 import Button from '../Button';
-import Wrap from '../Wrap';
+import From from '../Form';
 
-const Survey = ({ toggleCallModal }) => (
-  <Wrap extClassName="py-10 bg-[#f9f9f9]" intClassName="text-center md:flex">
-    <div
-      className="
-        sm:block
-        md:w-1/2
-        md:p-5
-        lg:p-8
-        hidden
-        w-2/3
-        mx-auto
-        mb-6
-      "
-    >
-      <StaticImage
-        placeholder="blurred"
-        width={600}
-        src="./images/manLg.png"
-        formats={['auto', 'webp', 'avif']}
-        alt=""
-      />
-    </div>
-    <div className="md:w-1/2 md:text-left md:p-6">
-      <div
-        className="
-          font-gilroyMedium
-          text-lg
-          mb-5
-          md:text-2xl
-          lg:text-3xl
-          lg:pr-20
-          lg:pt-10
-          lg:mb-8
-        "
-      >
-        Пройдите небольшой опрос и узнайте цену на нужную услугу,
-        ну а если времени нет, звоните прямо сейчас
-      </div>
-      <div className="mb-6 sm:hidden">
-        <StaticImage
-          placeholder="blurred"
-          width={205}
-          src="./images/man.png"
-          formats={['auto', 'webp', 'avif']}
-          alt=""
-        />
-      </div>
-      <div>
-        <Button
-          className="md:ml-0 mx-3 mb-3"
-          onClick={toggleCallModal}
+import DATA from './data';
+
+const BTN_STYLES = 'rounded-full hover:bg-gray-200 border-2 border-black text-center mb-5 cursor-pointer h-12 flex items-center justify-center';
+const CARD_STYLE = 'rounded shadow-md flex items-center p-5 h-[80px] pl-24 cursor-pointer relative mb-2';
+
+const getResult = (item) => {
+  let current = DATA[item.parent];
+  let result = item.result || item.button;
+
+  while (current) {
+    if (current.button) result = `${current.result || current.button} / ${result}`;
+    current = DATA[current.parent];
+  }
+  return result;
+};
+
+const Survey = ({ close }) => {
+  const [current, setCurrent] = useState(DATA.main);
+
+  const details = useMemo(() => getResult(current), [current]);
+
+  return (
+    <Overlay onClick={close}>
+      <div className="relative max-w-[400px] max-h-[90%] w-[95%] flex" onClick={(event) => event.stopPropagation()}>
+        <div onClick={close} className="absolute top-[-16px] right-[-16px] z-10 bg-white rounded-full p-2 border-2 border-blred-500">
+          <SvgIcon icon="close" className="w-[22px] h-[22px] cursor-pointer" />
+        </div>
+        <div
+          className="bg-white rounded shadow-lg overflow-auto p-5 sm:p-10 w-full"
         >
-          Заказать звонок
-        </Button>
-        <Button
-          className="md:ml-0 mx-3"
-          type="borderBlack"
-        >
-          Пройти тест
-        </Button>
+          {current.options ? (
+            <>
+              <div className="text-2xl mb-5 font-gilroySemiBold text-center">{current.blockTitle || current.button}</div>
+              {current.options.map((item) => (
+                <div
+                  className={DATA[item].icon ? CARD_STYLE : BTN_STYLES}
+                  key={item}
+                  onClick={() => setCurrent(DATA[item])}
+                >
+                  {DATA[item].icon && (
+                    <img
+                      className="absolute left-3 top-3"
+                      src={DATA[item].icon}
+                      alt=""
+                    />
+                  )}
+                  {DATA[item].button}
+                </div>
+              ))}
+              <div className="flex justify-end mt-10">
+                {current.parent && (
+                  <Button onClick={() => setCurrent(DATA[current.parent])} type="transparent" size="small">
+                    Назад
+                  </Button>
+                )}
+              </div>
+            </>
+          ) : (
+            <div>
+              <From title={details} details={details} close={close} />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  </Wrap>
-);
+    </Overlay>
+  );
+};
 
 export default Survey;

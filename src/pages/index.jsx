@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Layout from '../components/Layout';
 import Info from '../components/Info';
 import Advantages from '../components/Advantages';
-import Survey from '../components/Survey';
+import Action from '../components/Action';
 import Services from '../components/Services';
 import Examples from '../components/Examples';
 import Reviews from '../components/Reviews';
@@ -17,6 +17,7 @@ import Team from '../components/Team';
 import Map from '../components/Map';
 import CallModal from '../components/CallModal';
 import Seo from '../components/seo';
+import Survey from '../components/Survey';
 
 import scroll from '../utils/scroll';
 
@@ -24,6 +25,7 @@ const MainPage = ({ location }) => {
   const [videoSrc, setVideoSrc] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [openCallModal, setCallModalOpen] = useState(false);
+  const [openSurveyModal, setSurveyModalOpen] = useState(false);
 
   const closeVideoModal = useCallback(() => {
     setVideoSrc(null);
@@ -35,6 +37,10 @@ const MainPage = ({ location }) => {
 
   const toggleCallModal = useCallback(() => {
     setCallModalOpen((value) => !value);
+  }, []);
+
+  const toggleSurveyModal = useCallback(() => {
+    setSurveyModalOpen((value) => !value);
   }, []);
 
   useEffect(() => {
@@ -53,7 +59,7 @@ const MainPage = ({ location }) => {
       <Header toggleMenu={toggleMenu} toggleCallModal={toggleCallModal} />
       <Info open={openMenu} toggleMenu={toggleMenu} toggleCallModal={toggleCallModal} />
       <Advantages />
-      <Survey toggleCallModal={toggleCallModal} />
+      <Action toggleCallModal={toggleCallModal} toggleSurveyModal={toggleSurveyModal} />
       <Services />
       <Examples />
       <Reviews open={setVideoSrc} />
@@ -63,6 +69,7 @@ const MainPage = ({ location }) => {
       <Map />
       {videoSrc && <VideoModal src={videoSrc} close={closeVideoModal} />}
       {openCallModal && <CallModal close={toggleCallModal} />}
+      {openSurveyModal && <Survey close={toggleSurveyModal} />}
     </Layout>
   );
 };
