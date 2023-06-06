@@ -14,10 +14,10 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => (
   >
     <Menu open={open} toggleMenu={toggleMenu} />
     <div className="pt-7 md:pl-5 md:pt-[10%] lg:pl-10" {...ANIMATION_PROPS}>
-      <span className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
+      <h1 className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
         <span className="text-blred-500">Вскрытие</span> всех типов<br />
         <span className="text-blred-500">Замков</span> 24/7
-      </span>
+      </h1>
       <div className="mt-2 mb-8 font-gilroyLight text-xl sm:text-2xl sm:leading-8">
         Срочный сервис в<br />
         Санкт-Петербурге и Области

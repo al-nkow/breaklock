@@ -8,6 +8,8 @@ import Wrap from '../Wrap';
 
 const YEAR = new Date().getFullYear();
 
+const MENU = MENU_ITEMS.filter(({ id }) => id !== '6');
+
 const Footer = () => (
   <>
     <Wrap extClassName="py-8 min-h-[200px] bg-[#272727]" intClassName="text-center sm:text-left sm:flex max-w-screen-xl mx-auto items-stretch">
@@ -21,7 +23,7 @@ const Footer = () => (
         />
       </div>
       <div className="hidden lg:grid lg:w-[45%] xl:w-[35%] px-2 text-white grid-rows-3 grid-flow-col gap-4">
-        {MENU_ITEMS.map(({
+        {MENU.map(({
           id, title, target, link,
         }) => (
           <div onClick={() => clickMenuItem(target, link)} className="cursor-pointer hover:text-blblue-500" key={id}>

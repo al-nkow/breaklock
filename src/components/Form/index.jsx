@@ -111,7 +111,6 @@ const Form = ({
 
   return (
     <>
-      {title && <div className="mb-5 font-gilroyMedium">{title}</div>}
       {submitting && (
         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-10 bg-white bg-opacity-60">
           <Loader />
@@ -131,6 +130,7 @@ const Form = ({
         </>
       ) : (
         <>
+          {title && <div className="mb-5 font-gilroyMedium">{title}</div>}
           <div className="pb-6 relative">
             <label htmlFor="first_name" className="block mb-2 text-sm font-medium">Ваше имя</label>
             <input
