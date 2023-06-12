@@ -2,8 +2,9 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Button from '../Button';
 import Wrap from '../Wrap';
+import { PHONE } from '../../constants';
 
-const Action = ({ toggleCallModal, toggleSurveyModal }) => (
+const Action = ({ toggleCallModal }) => (
   <Wrap extClassName="py-10 bg-[#f9f9f9]" intClassName="text-center md:flex">
     <div
       className="
@@ -32,14 +33,14 @@ const Action = ({ toggleCallModal, toggleSurveyModal }) => (
           text-lg
           mb-5
           md:text-2xl
-          lg:text-3xl
           lg:pr-20
           lg:pt-10
           lg:mb-8
         "
       >
-        Пройдите небольшой опрос и узнайте цену на нужную услугу,
-        ну а если времени нет, звоните прямо сейчас
+        Не тратьте драгоценное время! Доверьте Вашу ситуацию профессионалам.
+        Оставьте заявку или позвоните нам, чтобы получить полную консультацию.
+        Возможно выезд специалиста не потребуется.
       </div>
       <div className="mb-6 sm:hidden">
         <StaticImage
@@ -60,9 +61,9 @@ const Action = ({ toggleCallModal, toggleSurveyModal }) => (
         <Button
           className="md:ml-0 mx-3"
           type="borderBlack"
-          onClick={toggleSurveyModal}
+          onClick={() => window.open(`tel:${PHONE}`, '_self')}
         >
-          Пройти тест
+          Позвонить
         </Button>
       </div>
     </div>

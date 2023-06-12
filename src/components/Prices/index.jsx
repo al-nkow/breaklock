@@ -3,9 +3,11 @@ import Wrap from '../Wrap';
 import data from './data';
 import Button from '../Button';
 
+import { ANIMATION_PROPS } from '../../constants';
+
 const Prices = ({ toggleCallModal, setOrder }) => (
   <Wrap extClassName="py-12 lg:py-16 text-center">
-    <div className="sm:grid lg:grid-cols-3 xl:grid-cols-3 grid-cols-2 gap-4">
+    <div className="sm:grid lg:grid-cols-3 xl:grid-cols-3 grid-cols-2 gap-4" {...ANIMATION_PROPS}>
       {data.map(({
         id, title, description, disclaimer, price, image, button,
       }) => (

@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
+import AOS from 'aos';
 
 import CallModal from '../components/CallModal';
 import OrderModal from '../components/OrderModal';
@@ -21,6 +22,10 @@ const SecondPage = () => {
 
   const toggleCallModal = useCallback(() => {
     setCallModalOpen((value) => !value);
+  }, []);
+
+  useEffect(() => {
+    AOS.init();
   }, []);
 
   return (

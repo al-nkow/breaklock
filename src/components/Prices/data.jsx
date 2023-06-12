@@ -1,13 +1,20 @@
 import React from 'react';
 
-import rect from './images/rect.png';
-import suval from './images/suval.png';
+import img1 from './images/1.jpg';
+import img2 from './images/2.jpg';
+import img3 from './images/3.jpg';
+import img4 from './images/4.jpg';
+import img5 from './images/5.jpg';
+import img6 from './images/6.jpg';
+import img7 from './images/7.jpg';
+import img8 from './images/8.jpg';
+import img9 from './images/9.jpg';
 
 export default [
   {
     id: '1',
     title: 'Вскрытие цилиндровых механизмов',
-    image: rect,
+    image: img1,
     description:
   <div>
     Замок под цилиндр - механизм в котором цилиндр является рабочей частью.<br />
@@ -22,7 +29,7 @@ export default [
   }, {
     id: '2',
     title: 'Вскрытие сувальных замков',
-    image: suval,
+    image: img2,
     description:
   <div>
     Сувальдный замок - это замок, в котором секретная часть состоит из нескольких пластин (сувальд).
@@ -35,7 +42,7 @@ export default [
   }, {
     id: '3',
     title: 'Вскрытие замков «Барьер»',
-    image: rect,
+    image: img3,
     description:
   <div>
     Почти все модели имеют 4 класс взломостойкости, оснащены  круговым кодированием и относятся к
@@ -47,7 +54,7 @@ export default [
   }, {
     id: '4',
     title: 'Вскрытие автомобилей',
-    image: rect,
+    image: img4,
     description:
   <div>
     Сел АКБ, ключи остались в салоне, перестал открываться капот или багажник, для наших
@@ -59,7 +66,7 @@ export default [
   }, {
     id: '5',
     title: 'Вскрытие сейфов',
-    image: rect,
+    image: img5,
     description:
   <div>
     <div className="mb-4">
@@ -79,7 +86,7 @@ export default [
   }, {
     id: '6',
     title: 'Вскрытие прочих замков',
-    image: rect,
+    image: img6,
     description:
   <div>
     Наши мастера открывают все типы замков. От реечных до умных. Если Вы не нашли свой,
@@ -89,7 +96,7 @@ export default [
   }, {
     id: '7',
     title: 'Замена старого замка',
-    image: rect,
+    image: img7,
     description:
   <div>
     <div className="mb-4">
@@ -108,7 +115,7 @@ export default [
   }, {
     id: '8',
     title: 'Установка нового замка',
-    image: rect,
+    image: img8,
     description:
   <div>
     Врезка замка на новое посадочное место довольно непростая задача. Установка
@@ -120,7 +127,7 @@ export default [
   }, {
     id: '9',
     title: 'Ремонт, перекодировка, замена фурнитуры и прочие услуги',
-    image: rect,
+    image: img9,
     description:
   <div>
     Специалисты фирмы «Помогайкин» с легкостью помогут решить любую задачу связанную с замками,

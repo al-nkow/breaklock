@@ -43,7 +43,7 @@ const Map = () => (
           center: [59.942861, 30.318326],
           zoom: 12,
           controls: [],
-          behaviors: ['drag'],
+          behaviors: ['drag'], // 'multiTouch'
         }}
       >
         <ZoomControl options={{ size: 'small', position: { top: 120, right: 10 } }} />
