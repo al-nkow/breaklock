@@ -72,3 +72,7 @@ html, body {
 .safarifix {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
+
+.hoverblock:hover {
+  color: #CF182A;
+}

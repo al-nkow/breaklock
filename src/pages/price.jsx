@@ -1,5 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import AOS from 'aos';
+import React, { useCallback, useState } from 'react';
 
 import CallModal from '../components/CallModal';
 import OrderModal from '../components/OrderModal';
@@ -11,7 +10,9 @@ import Wrap from '../components/Wrap';
 import Prices from '../components/Prices';
 import Title from '../components/Title';
 
-const SecondPage = () => {
+import usePage from '../hooks/usePage';
+
+const SecondPage = ({ location }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCallModal, setCallModalOpen] = useState(false);
   const [order, setOrder] = useState('');
@@ -24,9 +25,7 @@ const SecondPage = () => {
     setCallModalOpen((value) => !value);
   }, []);
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  usePage(location.search);
 
   return (
     <Layout>
@@ -41,7 +40,7 @@ const SecondPage = () => {
       </Wrap>
       <Wrap extClassName="pt-20 pb-28 bg-[#f9f9f9]">
         <div className="text-center">
-          <Title>От чего зависит стоимость вскрытия замка:</Title>
+          <Title>От чего зависит стоимость вскрытия замка</Title>
           <div className="mb-5">
             Класса секретности цилиндра, класса взломостойкости замка, наличия броненакладки,
             наличия марганцевой пластины, толщины полотна.

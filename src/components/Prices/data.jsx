@@ -13,6 +13,7 @@ import img9 from './images/9.jpg';
 export default [
   {
     id: '1',
+    target: 'lock',
     title: 'Вскрытие цилиндровых механизмов',
     image: img1,
     description:
@@ -53,6 +54,7 @@ export default [
     disclaimer: 'Цена вскрытия без ключа от 3500 ₽',
   }, {
     id: '4',
+    target: 'auto',
     title: 'Вскрытие автомобилей',
     image: img4,
     description:
@@ -65,6 +67,7 @@ export default [
     disclaimer: <>Цена вскрытия авто с двойной блокировкой от 3500&nbsp;₽</>,
   }, {
     id: '5',
+    target: 'safe',
     title: 'Вскрытие сейфов',
     image: img5,
     description:
@@ -95,6 +98,7 @@ export default [
     price: 1700,
   }, {
     id: '7',
+    target: 'oldlock',
     title: 'Замена старого замка',
     image: img7,
     description:
@@ -114,6 +118,7 @@ export default [
     price: 1700,
   }, {
     id: '8',
+    target: 'newlock',
     title: 'Установка нового замка',
     image: img8,
     description:
@@ -126,6 +131,7 @@ export default [
     price: 3400,
   }, {
     id: '9',
+    target: 'others',
     title: 'Ремонт, перекодировка, замена фурнитуры и прочие услуги',
     image: img9,
     description:

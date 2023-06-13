@@ -1,6 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState, useCallback } from 'react';
 
 import Header from '../components/Header';
 import Layout from '../components/Layout';
@@ -18,7 +16,7 @@ import Map from '../components/Map';
 import CallModal from '../components/CallModal';
 import Seo from '../components/seo';
 
-import scroll from '../utils/scroll';
+import usePage from '../hooks/usePage';
 
 const MainPage = ({ location }) => {
   const [videoSrc, setVideoSrc] = useState(null);
@@ -37,16 +35,7 @@ const MainPage = ({ location }) => {
     setCallModalOpen((value) => !value);
   }, []);
 
-  useEffect(() => {
-    AOS.init();
-    const params = new URLSearchParams(location.search);
-    const target = params.get('target');
-    if (target) {
-      setTimeout(() => {
-        scroll(target);
-      }, 100);
-    }
-  }, []);
+  usePage(location.search);
 
   return (
     <Layout>
