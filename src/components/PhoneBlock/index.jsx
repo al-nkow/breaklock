@@ -22,7 +22,7 @@ const PhoneBlock = ({ className, collapsed }) => (
     <div
       className={`${collapsed && 'hidden md:block text-slate-600'} font-gilroyLight text-sm`}
     >
-      с 9:00 до 18:00
+      круглосуточно
     </div>
   </div>
 );

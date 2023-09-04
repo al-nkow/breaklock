@@ -144,7 +144,7 @@ const Form = ({
             />
             {errors.name && <div className={ERR_STYLES}>{errors.name}</div>}
           </div>
-          <div className="pb-6 mb-5 relative">
+          <div className="pb-6 relative">
             <label htmlFor="phone" className="block mb-2 text-sm font-medium">Номер телефона</label>
             <input
               value={values.phone}
@@ -156,6 +156,9 @@ const Form = ({
               required
             />
             {errors.phone && <div className={ERR_STYLES}>{errors.phone}</div>}
+          </div>
+          <div className="mb-5 text-sm">
+            Нажимая на кнопку «Отправить» Вы соглашаетесь на обработку Ваших персональных данных.
           </div>
           <div className="flex justify-end">
             {cancelButton && (

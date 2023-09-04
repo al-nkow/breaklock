@@ -1,6 +1,7 @@
-export const PHONE = '+7 (999) 515-9820';
-export const EMAIL = '89117779644@mail.ru';
-export const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=79995159820';
+export const PHONE = '+7 (812) 718-3016';
+export const EMAIL = 'service@pomagaickin.ru';
+export const WHATSAPP_NUM = '+7 (950) 011-3271';
+export const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=79500113271';
 
 export const ANIMATION_PROPS = {
   'data-aos': 'fade-up',

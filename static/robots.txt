@@ -1,0 +1,7 @@
+User-agent: Yandex
+Clean-param: target
+
+User-agent: Googlebot
+Disallow: *?target=*
+
+Host: https://pomagaickin.ru/

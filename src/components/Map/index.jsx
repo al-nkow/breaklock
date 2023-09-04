@@ -4,7 +4,9 @@ import {
 } from '@pbe/react-yandex-maps';
 
 import SvgIcon from '../SvgIcon';
-import { PHONE, EMAIL, WHATSAPP_URL } from '../../constants';
+import {
+  PHONE, EMAIL, WHATSAPP_URL, WHATSAPP_NUM,
+} from '../../constants';
 
 const points = [
   [59.927366, 30.312583],
@@ -70,7 +72,7 @@ const Map = () => (
         <SvgIcon icon="whatsapp" className="absolute top-[3px] left-0" />
         <div className="font-gilroyLight text-gray-500">WhatsApp:</div>
         <div className="text-black no-underline hover:text-blred-500">
-          {PHONE}
+          {WHATSAPP_NUM}
         </div>
       </a>
       <a href={`tel:${PHONE}`} className="relative pl-8 mb-2 no-underline block">

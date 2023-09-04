@@ -14,7 +14,7 @@ const Prices = ({ toggleCallModal, setOrder }) => (
         <div className="w-full shadow-md rounded mb-6 overflow-hidden relative" id={target || id} key={id}>
           <img className="w-full" src={image} alt="" />
           <div className="p-5 pb-28">
-            <div className="mb-4 font-gilroyMedium text-2xl">{title}</div>
+            <h3 className="mb-4 font-gilroyMedium text-2xl">{title}</h3>
             <div className="mb-2">
               {description}
             </div>
