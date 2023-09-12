@@ -34,9 +34,13 @@ const Form = ({
     setValues((val) => ({ ...val, name: value }));
   };
 
-  const phoneChangeHandler = (value) => {
+  const phoneChangeHandler = (e) => {
+    const { value } = e.target;
+    let next = value.replace(/[^0-9\-+()]/g, '');
+    if (value[0] === '8') next = next.substring(1);
+    if (value[0] && value[0] !== '+') next = `+7${next}`;
     if (errors.phone) setErrors((errs) => ({ ...errs, phone: '' }));
-    setValues((val) => ({ ...val, phone: value }));
+    setValues((val) => ({ ...val, phone: next }));
   };
 
   const onSubmit = () => {
@@ -148,7 +152,7 @@ const Form = ({
             <label htmlFor="phone" className="block mb-2 text-sm font-medium">Номер телефона</label>
             <input
               value={values.phone}
-              onChange={(e) => phoneChangeHandler(e.target.value)}
+              onChange={(e) => phoneChangeHandler(e)}
               type="text"
               id="phone"
               className={`${INP_STYLES} ${errors.phone && 'border-red-500'}`}

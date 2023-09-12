@@ -40,7 +40,10 @@ const MainPage = ({ location }) => {
   return (
     <Layout>
       <Header toggleMenu={toggleMenu} toggleCallModal={toggleCallModal} />
-      <Info open={openMenu} toggleMenu={toggleMenu} toggleCallModal={toggleCallModal} />
+      <Info open={openMenu} toggleMenu={toggleMenu} toggleCallModal={toggleCallModal}>
+        <span className="text-blred-500">Круглосуточная</span> служба<br /> аварийного вскрытия<br />
+        <span className="text-blred-500">замков</span> в СПб
+      </Info>
       <Advantages />
       <Action toggleCallModal={toggleCallModal} />
       <Services />

@@ -6,7 +6,9 @@ import Wrap from '../Wrap';
 import Button from '../Button';
 import { ANIMATION_PROPS } from '../../constants';
 
-const Info = ({ open, toggleMenu, toggleCallModal }) => (
+const Info = ({
+  open, toggleMenu, toggleCallModal, children,
+}) => (
   <Wrap
     style={{ backgroundImage: `url(${background})` }}
     extClassName="bg-cover"
@@ -15,8 +17,7 @@ const Info = ({ open, toggleMenu, toggleCallModal }) => (
     <Menu open={open} toggleMenu={toggleMenu} />
     <div className="pt-7 md:pl-5 md:pt-[10%] lg:pl-10" {...ANIMATION_PROPS}>
       <h1 className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
-        <span className="text-blred-500">Круглосуточная</span> служба<br /> аварийного вскрытия<br />
-        <span className="text-blred-500">замков</span> в СПб
+        {children}
       </h1>
       <div className="mt-2 mb-8 font-gilroyLight text-xl sm:text-2xl sm:leading-8">
         Срочный сервис в<br />

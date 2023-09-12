@@ -9,8 +9,8 @@ const NotFoundPage = () => (
       <h1 className="text-2xl">404: Страница не найдена</h1>
     </div>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="404: Not Found" />
+export const Head = () => <Seo title="404: Not Found" />;
 
 export default NotFoundPage;

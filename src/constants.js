@@ -10,7 +10,7 @@ export const ANIMATION_PROPS = {
 };
 
 export const MENU_ITEMS = [
-  { id: '1', title: 'Наши услуги', target: 'servicesSection' },
+  { id: 'services', title: 'Наши услуги', target: 'servicesSection' },
   {
     id: 'price', title: 'Цены', target: 'examplesSection', link: '/price',
   },
