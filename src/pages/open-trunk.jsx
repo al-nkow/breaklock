@@ -10,7 +10,7 @@ const NotFoundPage = ({ location }) => {
   return (
     <Promo>
       <span className="text-blred-500">Вскрытие</span> багажника<br />
-      <span className="text-blred-500">в</span> Санкт-Петербурге
+      в <span className="text-blred-500">Санкт-Петербурге</span>
     </Promo>
   );
 };

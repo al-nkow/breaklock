@@ -14,7 +14,9 @@ import Team from '../Team';
 import Map from '../Map';
 import CallModal from '../CallModal';
 
-const Promo = ({ children }) => {
+const Promo = ({
+  children, info, table, description,
+}) => {
   const [videoSrc, setVideoSrc] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [openCallModal, setCallModalOpen] = useState(false);
@@ -37,11 +39,8 @@ const Promo = ({ children }) => {
       <Info open={openMenu} toggleMenu={toggleMenu} toggleCallModal={toggleCallModal}>
         {children}
       </Info>
-
-      {/* Небольшой текстовый блок» (текст позже пришлем) */}
-
-      {/* Таблица с развернутым списком услуг (относящихся к услуге страницы) и ценами */}
-
+      {info}
+      {table}
       <Advantages />
       <Action toggleCallModal={toggleCallModal} />
       <Examples />
@@ -49,9 +48,7 @@ const Promo = ({ children }) => {
       <Documents />
       <Discount toggleCallModal={toggleCallModal} />
       <Team />
-
-      {/* Далее нужно сделать текстовый блок крупный (текст позже пришлем) */}
-
+      {description}
       <Map />
       {videoSrc && <VideoModal src={videoSrc} close={closeVideoModal} />}
       {openCallModal && <CallModal close={toggleCallModal} />}
