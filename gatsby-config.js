@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: 'https://pomagaickin.ru/',
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
     'gatsby-plugin-postcss',
     {
