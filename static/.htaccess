@@ -2,4 +2,6 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP:X-HTTPS} !1
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.pomagaickin\.ru$ [NC]
+RewriteRule ^(.*)$ https://pomagaickin.ru/$1 [R=301,L]
 ErrorDocument 404 https://pomagaickin.ru/404/

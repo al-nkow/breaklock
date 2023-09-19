@@ -5,3 +5,4 @@ User-agent: Googlebot
 Disallow: *?target=*
 
 Host: https://pomagaickin.ru/
+Sitemap: https://pomagaickin.ru/sitemap-index.xml

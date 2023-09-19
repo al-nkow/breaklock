@@ -65,6 +65,7 @@ function Seo({ description, title, children }) {
       />
       <noscript><div><img src="https://mc.yandex.ru/watch/94767355" style={{ position: 'absolute', left: '-9999px' }} alt="" /></div></noscript>
       {/* <!-- /Yandex.Metrika counter --> */}
+      <script src="//code.jivo.ru/widget/P4HzInCkf5" async />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ScrollUp = () => {
-  const [visible, setVisible] = useState(window.scrollY > 100);
+  const [visible, setVisible] = useState(typeof window !== 'undefined' && window.scrollY > 100);
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -10,8 +10,8 @@ const ScrollUp = () => {
     const handleScroll = () => {
       setVisible(window.scrollY > 100);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (typeof window !== 'undefined') window.addEventListener('scroll', handleScroll);
+    return () => (typeof window !== 'undefined') && window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!visible) return '';
@@ -19,7 +19,7 @@ const ScrollUp = () => {
   return (
     <div
       onClick={scrollTop}
-      className="hidden md:block fixed text-blred-500 bottom-6 right-6 w-11 h-11 bg-[#f9f9f9] shadow-lg rounded cursor-pointer border-2 border-slate-400"
+      className="hidden md:block fixed text-blred-500 bottom-12 right-6 w-11 h-11 bg-[#f9f9f9] shadow-lg rounded cursor-pointer border-2 border-slate-400"
     >
       <svg className="w-10 h-10" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
