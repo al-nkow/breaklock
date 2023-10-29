@@ -15,8 +15,11 @@ import Team from '../components/Team';
 import Map from '../components/Map';
 import CallModal from '../components/CallModal';
 import Seo from '../components/seo';
+import Districts from '../components/Districts';
+import FAQ from '../components/FAQ';
 
 import usePage from '../hooks/usePage';
+import { FAQ_MAIN } from '../constants';
 
 const MainPage = ({ location }) => {
   const [videoSrc, setVideoSrc] = useState(null);
@@ -52,6 +55,8 @@ const MainPage = ({ location }) => {
       <Documents />
       <Discount toggleCallModal={toggleCallModal} />
       <Team />
+      <FAQ data={FAQ_MAIN} />
+      <Districts />
       <Map />
       {videoSrc && <VideoModal src={videoSrc} close={closeVideoModal} />}
       {openCallModal && <CallModal close={toggleCallModal} />}

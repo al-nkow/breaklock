@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .text {
+      width: 600px;
+      height: 300px;
+      padding: 20px;
+    }
+    .btnwrap {
+      margin: 20px 0;
+    }
+    .res {
+      width: 600px;
+      padding: 20px;
+      border: 1px solid red;
+    }
+  </style>
+  <textarea name="" class="text" id="inp" cols="30" rows="10"></textarea>
+  <div class="btnwrap">
+    <button id="exp">EXPORT</button>
+  </div>
+  <div class="res" id="res">
+
+  </div>
+  <script>
+    exp.addEventListener('click', () => {
+      let data = inp.value;
+
+      data = data.replaceAll('<h2>', '<h2 className="mb-10 text-2xl sm:text-3xl font-gilroyMedium text-center">');
+      data = data.replaceAll('<ul>', '<ul className="list-disc px-4 mx-auto mb-20">');
+      data = data.replaceAll('<li>', '<li className="mb-2">');
+      data = data.replaceAll('<p>', '<p className="mb-20 px-4 block mx-auto">');
+      data = data.replaceAll('</em>', '</em>&nbsp;');
+      data = data.replaceAll('<h3>', '<h3 className="mb-10 text-2xl sm:text-3xl font-gilroyMedium text-center">');
+      data = data.replaceAll('<ol>', '<ol className="list-decimal px-4 mx-auto mb-20">');
+      data = data.replaceAll('"Помогайкин"', '&quot;Помогайкин&quot;');
+      res.textContent = data;
+    });
+  </script>
+</body>
+</html>
+
+
+
+

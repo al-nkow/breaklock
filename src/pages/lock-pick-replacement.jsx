@@ -3,8 +3,9 @@ import * as React from 'react';
 import Seo from '../components/seo';
 import Promo from '../components/Promo';
 import Wrap from '../components/Wrap';
+import List from '../components/List';
 import usePage from '../hooks/usePage';
-import { SERVICE_DATA } from '../constants';
+import { SERVICE_DATA, LOCK_BRANDS } from '../constants';
 
 const InfoBlock = (
   <Wrap extClassName="pt-12 pb-6 lg:pt-16 lg:pb-8" intClassName="md:flex">
@@ -70,10 +71,19 @@ const Description = (
   </Wrap>
 );
 
+const Brands = (
+  <Wrap extClassName="py-12 md:text-lg">
+    <div className="mb-10 text-2xl sm:text-3xl font-gilroyMedium text-center">
+      Некоторые бренды замков, с которыми работают наши мастера:
+    </div>
+    <List data={LOCK_BRANDS} />
+  </Wrap>
+);
+
 const LockPickReplacement = ({ location }) => {
   usePage(location.search);
   return (
-    <Promo info={InfoBlock} table={Table} description={Description}>
+    <Promo info={InfoBlock} table={Table} description={Description} brands={Brands}>
       <span className="text-blred-500">Замена</span><br />личинки замка<br />
       в <span className="text-blred-500">Санкт-Петербурге</span>
     </Promo>

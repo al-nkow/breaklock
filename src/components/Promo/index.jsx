@@ -12,10 +12,12 @@ import Documents from '../Documents';
 import Discount from '../Discount';
 import Team from '../Team';
 import Map from '../Map';
+import FAQ from '../FAQ';
 import CallModal from '../CallModal';
+import Districts from '../Districts';
 
 const Promo = ({
-  children, info, table, description,
+  children, info, table, description, brands, faq,
 }) => {
   const [videoSrc, setVideoSrc] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
@@ -44,11 +46,14 @@ const Promo = ({
       <Advantages />
       <Action toggleCallModal={toggleCallModal} />
       <Examples />
+      {brands}
       <Reviews open={setVideoSrc} />
       <Documents />
       <Discount toggleCallModal={toggleCallModal} />
       <Team />
+      {faq && <FAQ data={faq} />}
       {description}
+      <Districts />
       <Map />
       {videoSrc && <VideoModal src={videoSrc} close={closeVideoModal} />}
       {openCallModal && <CallModal close={toggleCallModal} />}
