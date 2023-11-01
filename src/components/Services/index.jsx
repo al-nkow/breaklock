@@ -15,17 +15,17 @@ const iconClassName = 'h-[52px] w-[52px] sm:h-[78px] sm:w-[78px]';
 
 const Items = [
   {
-    id: 1, icon: <Lock className={iconClassName} />, link: 'lock', text: <>Вскрытие<br />замков</>,
+    id: 1, icon: <Lock className={iconClassName} />, link: 'lock', text: <>Вскрытие<br className="hidden sm:block" /> замков</>,
   }, {
-    id: 2, icon: <Door className={iconClassName} />, link: 'auto', text: <>Вскрытие<br />автомобилей</>,
+    id: 2, icon: <Door className={iconClassName} />, link: 'auto', text: <>Вскрытие<br className="hidden sm:block" /> автомобилей</>,
   }, {
-    id: 3, icon: <Guard className={iconClassName} />, link: 'newlock', text: <>Установка<br />нового замка</>,
+    id: 3, icon: <Guard className={iconClassName} />, link: 'newlock', text: <>Установка<br className="hidden sm:block" /> нового замка</>,
   }, {
-    id: 4, icon: <Alert className={iconClassName} />, link: 'oldlock', text: <>Замена<br />старого замка</>,
+    id: 4, icon: <Alert className={iconClassName} />, link: 'oldlock', text: <>Замена<br className="hidden sm:block" /> старого замка</>,
   }, {
-    id: 5, icon: <Safe className={iconClassName} />, link: 'safe', text: <>Вскрытие<br />сейфов</>,
+    id: 5, icon: <Safe className={iconClassName} />, link: 'safe', text: <>Вскрытие<br className="hidden sm:block" /> сейфов</>,
   }, {
-    id: 6, icon: <Settings className={iconClassName} />, link: 'others', text: <>Ремонт и<br />прочие услуги</>,
+    id: 6, icon: <Settings className={iconClassName} />, link: 'others', text: <>Ремонт и<br className="hidden sm:block" /> прочие услуги</>,
   },
 ];
 
@@ -35,7 +35,7 @@ const Services = () => (
     <div
       {...ANIMATION_PROPS}
       className="
-        md:grid-cols-2 md:grid-rows-3
+        grid-cols-2
         lg:grid-cols-3 lg:grid-rows-2
         max-w-6xl mx-auto
         grid gap-4"
@@ -49,11 +49,11 @@ const Services = () => (
           className="
             shadow-md rounded sm:h-[120px] p-5
             relative text-left
-            flex align-stretch hoverblock
+            block sm:flex align-stretch hoverblock
           "
         >
-          <div className="flex flex-none items-center justify-center w-[58px] sm:w-[77px]">{icon}</div>
-          <div className="flex items-center pl-7 lg:text-lg">{text}</div>
+          <div className="mx-auto mb-2 sm:m-0 flex flex-none items-center justify-center w-[58px] sm:w-[77px]">{icon}</div>
+          <div className="text-center sm:text-left sm:flex items-center sm:pl-7 lg:text-lg">{text}</div>
         </Link>
       ))}
     </div>
