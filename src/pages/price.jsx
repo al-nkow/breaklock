@@ -31,7 +31,7 @@ const SecondPage = ({ location }) => {
   return (
     <Layout>
       <Header toggleMenu={toggleMenu} toggleCallModal={toggleCallModal} />
-      <Wrap>
+      <Wrap extClassName="showscroll">
         <Menu open={openMenu} toggleMenu={toggleMenu} />
         <div className="mb-4 flex items-center justify-center pt-[50px] sm:pt-[100px] text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold text-center">
           <h1><span className="text-blred-500">Цены</span> на наши услуги</h1>

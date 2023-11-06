@@ -11,7 +11,7 @@ const Info = ({
 }) => (
   <Wrap
     style={{ backgroundImage: `url(${background})` }}
-    extClassName="bg-cover"
+    extClassName="bg-cover showscroll"
     intClassName="min-h-[300px] md:h-[530px] min-[875px]:h-[600px] relative overflow-hidden"
   >
     <Menu open={open} toggleMenu={toggleMenu} />

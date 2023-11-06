@@ -76,3 +76,25 @@ html, body {
 .hoverblock:hover {
   color: #CF182A;
 }
+
+.showscroll ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.showscroll ::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.showscroll ::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.showscroll ::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
+
+.showscroll ::-webkit-scrollbar-track { 
+  background-color: #eee; 
+}
