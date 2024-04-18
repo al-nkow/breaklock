@@ -7,7 +7,7 @@ import Button from '../Button';
 import { ANIMATION_PROPS } from '../../constants';
 
 const Info = ({
-  open, toggleMenu, toggleCallModal, children,
+  open, toggleMenu, toggleCallModal, children, hideDesc,
 }) => (
   <Wrap
     style={{ backgroundImage: `url(${background})` }}
@@ -19,10 +19,12 @@ const Info = ({
       <h1 className="text-3xl md:text-4xl min-[960px]:text-5xl min-[960px]:leading-[52px] font-gilroyBold">
         {children}
       </h1>
-      <div className="mt-2 mb-8 font-gilroyLight text-xl sm:text-2xl sm:leading-8">
-        Срочный сервис в<br />
-        Санкт-Петербурге и Области
-      </div>
+      {!hideDesc ? (
+        <div className="mt-2 mb-8 font-gilroyLight text-xl sm:text-2xl sm:leading-8">
+          Срочный сервис в<br />
+          Санкт-Петербурге и Области
+        </div>
+      ) : <div className="mb-8 " />}
       <Button
         className="mb-8"
         onClick={toggleCallModal}

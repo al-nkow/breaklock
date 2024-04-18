@@ -73,8 +73,8 @@ try {
 
   // Получатель письма
   // $mail->addAddress($email);
-  $mail->addAddress('xxx@xxxxxx.ru');
-  $mail->addAddress('xxx@xxxxxx.ru');
+  $mail->addAddress('89117779644@mail.ru');
+  $mail->addAddress('service@pomagaickin.ru');
   // $mail->addAddress('youremail@gmail.com'); // Ещё один, если нужен
 
   // Прикрипление файлов к письму

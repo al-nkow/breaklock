@@ -35,6 +35,7 @@ function Seo({ description, title, children }) {
         name="keywords"
         content="вскрытие замков, установка дверей, открыть, замок, вскрыть, взлом, авто, ключи"
       />
+      <meta name="yandex-verification" content="54d6ace0a477eda3" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
