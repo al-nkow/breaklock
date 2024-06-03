@@ -1,9 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import Wrap from '../Wrap';
-import Title from '../Title';
 import Button from '../Button';
+import Grid from './ExamplesGrid';
+import ExamplesWrap from './ExamplesWrap';
 
 const BUTTONS = [
   { id: 'ex1', title: 'Вскрытие замков' },
@@ -45,8 +44,7 @@ const Examples = () => {
   }, {}), [images]);
 
   return (
-    <Wrap extClassName="py-12 lg:py-16 text-center" id="examplesSection">
-      <Title className="mb-5 sm:mb-10">Примеры работ</Title>
+    <ExamplesWrap>
       <div className="min-[510px]:flex min-[750px]:block  mb-8 sm:mb-16">
         {BUTTONS.map(({ id, title }) => (
           <Button
@@ -59,25 +57,8 @@ const Examples = () => {
           </Button>
         ))}
       </div>
-      <div
-        className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 max-w-screen-xl mx-auto"
-      >
-        {imgMap[active].map((image) => (
-          <div
-            key={image.node.id}
-            className="relative rounded h-full overflow-hidden safarifix"
-          >
-            <GatsbyImage
-              placeholder="blurred"
-              image={getImage(image.node)}
-              src={image.node.childImageSharp.fluid.src}
-              formats={['auto', 'webp', 'avif']}
-              alt=""
-            />
-          </div>
-        ))}
-      </div>
-    </Wrap>
+      <Grid images={imgMap[active]} />
+    </ExamplesWrap>
   );
 };
 

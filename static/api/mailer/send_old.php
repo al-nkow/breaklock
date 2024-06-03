@@ -5,19 +5,18 @@ require 'SMTP.php';
 require 'Exception.php';
 
 // чтобы убрать CORS с локалхоста
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: X-Requested-With");
-header("Content-Type: text/html; charset=UTF-8");
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Headers: X-Requested-With");
+// header("Content-Type: text/html; charset=UTF-8");
 
-// Почему-то без этого говна не работает если не formData отправлять
-// $_POST = json_decode(file_get_contents('php://input'), true);
+// Почему-то без этого говна не работает
+$_POST = json_decode(file_get_contents('php://input'), true);
 
 // Переменные, которые отправляет пользователь
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $order = $_POST['order'];
 $details = $_POST['details'];
-$file = $_FILES['file'];
 
 // Формирование самого письма
 $title = "POMAGAICKIN.RU заявка";
@@ -78,34 +77,24 @@ try {
   $mail->addAddress('service@pomagaickin.ru');
   // $mail->addAddress('youremail@gmail.com'); // Ещё один, если нужен
 
-  // Прикрипление файлов к письму - вариант 1 - не работает
-  // if (!empty($file['name'][0])) {
-  //   for ($i = 0; $i < count($file['tmp_name']); $i++) {
-  //       if ($file['error'][$i] === 0) 
-  //           $mail->addAttachment($file['tmp_name'][$i], $file['name'][$i]);
-  //   }
-  // }
-
-  // Прикрипление файлов к письму - вариант 2 - не работает
-  // if (!empty($file['name'][0])) {
-  //     for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-  //         $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-  //         $filename = $file['name'][$ct];
-  //         if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-  //             $mail->addAttachment($uploadfile, $filename);
-  //             $rfile[] = "Файл $filename прикреплён";
-  //         } else {
-  //             $rfile[] = "Не удалось прикрепить файл $filename";
-  //         }
-  //     }   
-  // }
+  // Прикрипление файлов к письму
+  if (!empty($file['name'][0])) {
+      for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
+          $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
+          $filename = $file['name'][$ct];
+          if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
+              $mail->addAttachment($uploadfile, $filename);
+              $rfile[] = "Файл $filename прикреплён";
+          } else {
+              $rfile[] = "Не удалось прикрепить файл $filename";
+          }
+      }   
+  }
 
   // Отправка сообщения
   $mail->isHTML(true);
   $mail->Subject = $title;
-  $mail->Body = $body;  
-  // Прикрипление файла к письму - если один файл - работает
-  $mail->addAttachment($file['tmp_name'], $file['name']); 
+  $mail->Body = $body;    
 
   // Проверяем, отправилось ли сообщение
   if ($mail->send()) {
@@ -122,6 +111,6 @@ try {
 }
 
 // Отображение результата
-echo json_encode(["result" => $result, "name" => $file, "resultfile" => $rfile, "status" => $status]);
+echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
 
 ?>

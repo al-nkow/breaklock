@@ -10,7 +10,7 @@ import img5 from './images/v5.png';
 import img6 from './images/v6.png';
 import img7 from './images/v7.png';
 
-const data = [
+const DEFAULT_DATA = [
   { id: 1, preview: img1, src: 'https://www.youtube.com/embed/cic1qili1qY' },
   { id: 2, preview: img2, src: 'https://www.youtube.com/embed/2NxyN7cEvao' },
   { id: 3, preview: img3, src: 'https://www.youtube.com/embed/TmJ6cUdkK_E' },
@@ -20,7 +20,7 @@ const data = [
   { id: 7, preview: img7, src: 'https://www.youtube.com/embed/0_ILwf1dFRc' },
 ];
 
-const Reviews = ({ open }) => (
+const Reviews = ({ open, data = DEFAULT_DATA }) => (
   <Wrap extClassName="py-12 pb-0 lg:py-16 text-center" id="reviewsSection">
     <Title className="mb-10">Отзывы клиентов</Title>
 

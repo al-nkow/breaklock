@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Button from '../Button';
 import Loader from '../Loader';
+import SvgIcon from '../SvgIcon';
 
 const INP_STYLES = 'border border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5';
 const ERR_STYLES = 'absolute text-xs text-red-500 left-2 bottom-2';
@@ -9,9 +10,9 @@ const ERR_STYLES = 'absolute text-xs text-red-500 left-2 bottom-2';
 const ERROR_MSG = 'Ошибка сервера! Попробуйте отправить заявку позже';
 
 const Form = ({
-  close, cancelButton, title, details,
+  close, cancelButton, title, details, file,
 }) => {
-  const [values, setValues] = useState({ name: '', phone: '' });
+  const [values, setValues] = useState({ name: '', phone: '', file: null });
   const [errors, setErrors] = useState({ name: '', phone: '' });
   const [serverErrorMsg, setServerErrorMsg] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -43,22 +44,30 @@ const Form = ({
     setValues((val) => ({ ...val, phone: next }));
   };
 
+  const fileChangeHandler = (e) => {
+    setValues((val) => ({ ...val, file: Array.from(e.target.files)[0] }));
+  };
+
+  const clearFile = () => {
+    setValues((val) => ({ ...val, file: null }));
+  };
+
   const onSubmit = () => {
+    if (submitting) return;
     setSubmitting(true);
     const url = '/api/mailer/send.php';
-    const requestData = {
-      order: `${new Date().getMonth() + 1}-${Math.random().toString().substr(2, 4)}`,
-      ...values,
-      ...(details && { details }),
-    };
+    // for test: https://pomagaickin.ru/api/mailer/sent.php
 
-    // const myHeaders = new Headers();
-    // myHeaders.append('Accept', 'application/json');
-    // myHeaders.append('Content-Type', 'application/json');
+    const formData = new FormData();
+    formData.append('order', `${new Date().getMonth() + 1}-${Math.random().toString().substr(2, 4)}`);
+    if (details) formData.append('details', details);
+    if (values.file) formData.append('file', values.file);
+    formData.append('name', values.name);
+    formData.append('phone', values.phone);
 
     const fetchData = {
       method: 'POST',
-      body: JSON.stringify(requestData),
+      body: formData, // JSON.stringify(requestData),
       // headers: myHeaders,
     };
 
@@ -161,6 +170,29 @@ const Form = ({
             />
             {errors.phone && <div className={ERR_STYLES}>{errors.phone}</div>}
           </div>
+          {file && (
+            <div className="pb-6 relative">
+              <label htmlFor="file" className="block mb-2 text-sm font-medium">Прикрепите файл</label>
+
+              <div className={`${INP_STYLES} h-[44px] relative cursor-pointer`}>
+                {values.file?.name || 'Выбрать файл'}
+                <input
+                  onChange={fileChangeHandler}
+                  type="file"
+                  id="file"
+                  accept="image/*"
+                  className="absolute top-0 left-0 right-0 bottom-0 opacity-0 cursor-pointer"
+                />
+                {values.file?.name && (
+                  <SvgIcon
+                    onClick={clearFile}
+                    icon="close"
+                    className="w-[22px] h-[22px] cursor-pointer absolute top-[9px] right-[8px]"
+                  />
+                )}
+              </div>
+            </div>
+          )}
           <div className="mb-5 text-sm">
             Нажимая на кнопку «Отправить» Вы соглашаетесь на обработку Ваших персональных данных.
           </div>

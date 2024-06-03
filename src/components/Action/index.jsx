@@ -4,7 +4,7 @@ import Button from '../Button';
 import Wrap from '../Wrap';
 import { PHONE } from '../../constants';
 
-const Action = ({ toggleCallModal }) => (
+const Action = ({ toggleCallModal, text }) => (
   <Wrap extClassName="py-10 bg-[#f9f9f9]" intClassName="text-center md:flex">
     <div
       className="
@@ -38,9 +38,15 @@ const Action = ({ toggleCallModal }) => (
           lg:mb-8
         "
       >
-        Не тратьте драгоценное время! Доверьте Вашу ситуацию профессионалам.
-        Оставьте заявку или позвоните нам, чтобы получить полную консультацию.
-        Возможно выезд специалиста не потребуется.
+        {
+          text || (
+            <>
+              Не тратьте драгоценное время! Доверьте Вашу ситуацию профессионалам.
+              Оставьте заявку или позвоните нам, чтобы получить полную консультацию.
+              Возможно выезд специалиста не потребуется.
+            </>
+          )
+        }
       </div>
       <div className="mb-6 sm:hidden">
         <StaticImage

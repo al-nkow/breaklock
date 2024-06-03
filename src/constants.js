@@ -45,6 +45,7 @@ export const SERVICE_DATA = [
       { id: 3, title: 'Дверного глазка', link: '/install-peephole', price: 900 },
       { id: 4, title: 'Дверных ручек', link: '/install-handle', price: 1200 },
       { id: 5, title: 'Замков', link: '/install-lock', price: 900 },
+      { id: 6, title: 'Умного замкa', link: '/install-smart-lock', price: 900 },
     ],
   }, {
     id: 3,
@@ -163,6 +164,10 @@ export const LOCK_BRANDS = [
   'АЛЛЮР',
   'Зенит',
   'SibrTec',
+];
+
+export const SMART_LOCK_BRANDS = [
+  'Kaadas', 'Samsung', 'AQARA', 'Xiaomi',
 ];
 
 export const FAQ_MAIN = [
